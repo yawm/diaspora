@@ -11,3 +11,14 @@ else
     bundle exec thin start $@
 fi
 
+more server.patch
+--- server	2010-09-18 18:48:11.202354457 +0200
++++ server.diff	2010-09-18 18:49:41.391379947 +0200
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+ 
+ mkdir -p -v log/thin/
+-bundle exec ruby ./script/websocket_server.rb&
+-bundle exec thin start $@
++/var/lib/gems/1.8/bin/bundle exec ruby ./script/websocket_server.rb&
++/var/lib/gems/1.8/bin/bundle exec thin start $@
